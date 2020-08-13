@@ -1,0 +1,15 @@
+<link href="/assets/styles.css" rel="stylesheet" type="text/css" />
+<body>
+    <form method ="POST" >
+      <input name="item" placeholder = "Enter item name" required/>
+      <input name="price" placeholder = "Enter item price" required/>
+      <button class="submit-button" type="submit">Add item</button>
+    </form>
+    <ul>
+      <% for(var i=0; i<items.length; i++){ %>
+        <li ><%=items[i].item %></li>
+        <li ><%=items[i].price %></li>
+     <% }%>
+    </ul>
+
+</body>
