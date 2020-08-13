@@ -1,6 +1,6 @@
 body{
-    background: #0d1521;
-    font-family: tahoma;
+    background: #180213;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #989898;
 }
 
@@ -8,7 +8,7 @@ body{
 input{
     width: 35%;
     padding: 20px;
-    background:#181c22;
+    background:#251e27;
     border: 0;
     float: left;
     font-size: 20px;
@@ -19,7 +19,7 @@ input{
     padding: 20px;
     width: 30%;
     float: left;
-    background: #23282e;
+    background: #2e232e;
     border: 0;
     box-sizing: border-box;
     color: #fff;

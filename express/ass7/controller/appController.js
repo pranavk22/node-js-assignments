@@ -7,35 +7,43 @@ var data = [
 var requiredItem = [];
 
 const bodyparser = require("body-parser");
-var urlencodedParser = bodyparser.urlencoded({ extended: false });
+// var urlencodedParser = bodyparser.urlencoded({ extended: false });
 
 module.exports = function (app) {
+  app.use(bodyparser.json())
+
   app.get("/items", function (req, res) {
-    res.render("items", { items: data });
+    res.send(data);
+    // res.render("items", { items: data });
   });
 
-  app.post("/items", urlencodedParser, function (req, res) {
+  app.post("/items", function (req, res) {
+    console.log(req.body);
     data.push(req.body);
     console.log(data);
-    res.render("items", { items: data });
+    res.send(data);
+    // res.render("items", { items: data });
   });
 
   app.get("/items/:id", function (req, res) {
     requiredItem.push(data[req.params.id]);
     console.log(requiredItem);
-    res.render("items", { items: requiredItem });
+    res.send(requiredItem);
+    // res.render("items", { items: requiredItem });
     requiredItem.pop();
-
   });
 
   app.patch("/items/:id", function (req, res) {
-    data[req.params.id]= req.body;
-    res.render("items", { items: data });
+    console.log(req.body);
+    data[req.params.id] = req.body;
+    res.send(data);
   });
 
   app.delete("/items/:id", function (req, res) {
-    data =data.splice([req.params.id],1);
-    res.render("items", { items: data });
+    console.log(req.params.id, data);
+    data.splice([req.params.id], 1);
+    console.log(data);
+    res.send(data);
   });
 };
 // 1. GET /items - this should render a list of shopping items.
